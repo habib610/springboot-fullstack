@@ -1,4 +1,4 @@
-import { ERR_MSG } from "../routes/routes";
+import { ERR_MSG } from "../constants/constants";
 import { defaultHeader } from "./request";
 
 const auth = (() => {

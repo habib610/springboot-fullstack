@@ -1,3 +1,4 @@
 export const HOME = "/";
 
-export const ERR_MSG = "There is something went wrong!";
+/* @DESC::  API endpoints  */
+export const STUDENTS_ENDPOINT = "/students";

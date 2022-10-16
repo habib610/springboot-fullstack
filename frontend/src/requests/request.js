@@ -1,4 +1,4 @@
-import { ERR_MSG } from "../routes/routes";
+import { ERR_MSG } from "../constants/constants";
 import auth from "./auth";
 const TOKEN_ERR = "Invalid Token";
 export const defaultHeader = {
@@ -7,6 +7,30 @@ export const defaultHeader = {
 };
 
 const request = (() => {
+    const get = ({ endpoint, body }) => {
+        return new Promise(async (resolve, reject) => {
+            try {
+                console.log(
+                    "Sending Request",
+                    `${process.env.REACT_APP_BASE_URL}${endpoint}`
+                );
+                const response = await fetch(
+                    `${process.env.REACT_APP_BASE_URL}${endpoint}`,
+                    {
+                        method: "GET",
+                        headers: { ...defaultHeader },
+                    }
+                );
+
+                const data = await response.json();
+                console.log("data, ", data);
+                if (data?.error) reject(data.error);
+                resolve(data);
+            } catch (error) {
+                reject(error);
+            }
+        });
+    };
     const getPost = ({ endpoint, headers = {}, isFormData = false, body }) => {
         return new Promise(async (resolve, reject) => {
             try {
@@ -170,6 +194,7 @@ const request = (() => {
     };
 
     return {
+        get: get,
         post: getPost,
         authPost: getAuthPost,
         authGet: getAuthRequest,
