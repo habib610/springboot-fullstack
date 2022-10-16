@@ -37,3 +37,24 @@ backend/!**/src/test/**/build/
 /frontend/node_modules
 /frontend/.vscode/
 /frontend/.yarn/
+/frontend/.env
+
+/frontend/.pnp
+/frontend.pnp.js
+/frontend
+/frontend# testing
+/frontend/coverage
+
+# production
+/build
+
+# misc
+/frontend/.DS_Store
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+/frontend/
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
